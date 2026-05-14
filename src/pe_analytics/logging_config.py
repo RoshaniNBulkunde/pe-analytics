@@ -5,11 +5,12 @@ Central logging configuration for the pe-analytics package.
 Import setup_logger() in every other module.
 """
 
-import logging  ##This module defines functions and classes which implement a flexible event logging system for applications and libraries.
-import os
-from datetime import datetime
+import logging    # Python's built-in logging library
+import os         # For creating folders and file paths
+from datetime import datetime  # For putting today's date in the log filename
 
 
+## The function signature
 def setup_logger(name: str, level: int = logging.INFO) -> logging.Logger:
     """
     Create and return a logger with console and file handlers.
@@ -21,15 +22,17 @@ def setup_logger(name: str, level: int = logging.INFO) -> logging.Logger:
     Returns:
         Configured logger instance.
     """
+    ## Creating the logs folder
     # Create logs directory if it does not exist
-    log_dir = "logs"
-    os.makedirs(log_dir, exist_ok=True)
-
+    log_dir = "logs"  
+    os.makedirs(log_dir, exist_ok=True)     # os.makedirs creates the logs/ folder                                                     
+                                            # exist_ok=True means — if the folder already exists, do not crash, just continue.
+    
     # Log filename includes date so each day gets its own file
     log_filename = os.path.join(
         log_dir,
         f"pe_analytics_{datetime.now().strftime('%Y%m%d')}.log"
-    )
+    )  # This creates a logfile
 
     # Create logger
     logger = logging.getLogger(__name__)
@@ -46,12 +49,12 @@ def setup_logger(name: str, level: int = logging.INFO) -> logging.Logger:
     )
 
     # Console handler — prints to Spyder console
-    console_handler = logging.StreamHandler()
+    console_handler = logging.StreamHandler()  # prints to Spyder console
     console_handler.setLevel(level)
     console_handler.setFormatter(formatter)
 
     # File handler — writes to logs/ folder
-    file_handler = logging.FileHandler(log_filename)
+    file_handler = logging.FileHandler(log_filename)  
     file_handler.setLevel(level)
     file_handler.setFormatter(formatter)
 
