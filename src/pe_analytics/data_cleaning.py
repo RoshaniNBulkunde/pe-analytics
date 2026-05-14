@@ -12,6 +12,7 @@ from src.pe_analytics.logging_config import setup_logger
 logger = setup_logger(__name__)
 
 
+## Custom Exception
 class DataCleaningError(Exception):
     """Raised when data cleaning fails due to invalid input."""
 
