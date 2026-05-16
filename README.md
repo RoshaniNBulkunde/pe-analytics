@@ -105,7 +105,26 @@ made it correct.
 
 ## Project Structure
 
+## pe-analytics/
+├── src/pe_analytics/
+│   ├── logging_config.py    # Centralized logging —
+│   │                        # imported by every module
+│   ├── data_cleaning.py     # pandas cleaning pipeline —
+│   │                        # missing values, outliers,
+│   │                        # feature engineering
+│   ├── models.py            # Ridge, Lasso, XGBoost
+│   │                        # with TimeSeriesSplit CV
+│   └── llm_extraction.py   # OpenAI API extraction
+│                            # with Pydantic validation
+├── tests/
+│   ├── test_data_cleaning.py # 11 unit tests
+│   └── test_models.py        # 20 unit tests
+├── scripts/
+│   └── run_pipeline.py      # Single entry point —
+│                            # runs all 4 stages
+└── README.md
 ---
+## 
 
 ## Quickstart
 
