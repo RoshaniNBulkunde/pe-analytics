@@ -29,7 +29,7 @@ informs billion-dollar investment decisions.
 
 ---
 
-## What We Built
+## What I Built
 
 An end-to-end Python pipeline that:
 
@@ -48,12 +48,12 @@ An end-to-end Python pipeline that:
 
 ---
 
-## The Models — and What We Found
+## The Models — and What I Found
 
-We built three models deliberately, not randomly. Each 
+I built three models deliberately, not randomly. Each 
 teaches us something different:
 
-| Model | R² | RMSE | Why we built it |
+| Model | R² | RMSE | Why I built it |
 |-------|----|------|-----------------|
 | Ridge | 0.735 | 0.842 | Interpretable baseline — tells us which features matter and by exactly how much |
 | Lasso | 0.737 | 0.839 | Feature selection — automatically zeros out irrelevant predictors |
